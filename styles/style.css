@@ -93,6 +93,8 @@ h2 {
 }
 
 #result {
+    width: 60%;
+    height: 20px;
     margin-top: 20px;
     text-align: left;
     background: #eee;
@@ -102,6 +104,8 @@ h2 {
     overflow-x: auto;
     white-space: pre-wrap;
     word-wrap: break-word;
+    margin-left: 90px;
+    margin-right: auto;
 }
 
 #nextBtn{
