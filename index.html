@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Huffman-Codierung Theorie</title>
+<link rel="stylesheet" href="styles/style.css"/>
+</head>
+<body>
+<header>
+    <h1>Einführung in die Huffman-Codierung</h1>
+</header>
+<main>
+    <section class="theory">
+        <h2>Theoretische Grundlagen</h2>
+        <p>Die Huffman-Codierung ist ein Verfahren zur verlustfreien Komprimierung von Daten, bei dem häufig auftretende Zeichen kürzere Codes erhalten als selten auftretende. Dies führt in der Regel zu einer effizienteren Speicherung oder Übertragung von Daten. Die Idee wurde von David A. Huffman im Jahr 1952 entwickelt.</p>
+        
+        <h3>Grundprinzip</h3>
+        <p>Beim Huffman-Verfahren wird aus den Häufigkeiten der vorkommenden Zeichen ein binärer Baum erstellt, bei dem häufig vorkommende Zeichen näher an der Wurzel liegen und somit kürzere Bitmuster erhalten. Seltener vorkommende Zeichen werden weiter unten im Baum platziert und erhalten längere Bitmuster. Das Resultat ist ein präfixfreier Code, der unzweideutig dekodiert werden kann.</p>
+        
+        <h3>Beispiel für eine Huffman-Codierung</h3>
+        <p>Nehmen wir an, wir haben das Wort "BAMM". Die Häufigkeiten:</p>
+        <ul>
+            <li>B: 1</li>
+            <li>A: 1</li>
+            <li>M: 2</li>
+        </ul>
+        <p>Ein möglicher Code wäre:</p>
+        <ul>
+            <li>M: 0</li>
+            <li>B: 10</li>
+            <li>A: 11</li>
+        </ul>
+        <p>"BAMM" => 10 11 0 0</p>
+        
+        <h3>Eigenschaften der Huffman-Codierung</h3>
+        <ul>
+            <li><strong>Optimalität:</strong> Huffman liefert für gegebene Häufigkeiten einen der kürzesten binären Präfixcodes.</li>
+            <li><strong>Präfixfreiheit:</strong> Kein Code ist Präfix eines anderen, eindeutige Dekodierung ist garantiert.</li>
+        </ul>
+        
+        <h3>Visuelle Darstellung</h3>
+        <img src="images/Huffman_tree_2.svg.png" alt="Huffman Baum" class="theory-image"/>
+        
+        <h3>Huffman-Baum bauen für: "MISSISIPPI"</h3>
+        <h3><strong>Schritt 1:</strong></h3>
+        <p>Nimm einen Stift und Papier oder verwende die Desktopanwendung "Paint", um deinen Huffman-Baum zum Wort "MISSISIPPI" zu erstellen.</p>
+        <p>Schreibe alle Buchstaben, die im Wort vorkommen, auf und deren Häufigkeit. Zum Beispiel: Der Buchstabe "S" kommt 3-mal vor.</p>
+        <h3><strong>Schritt 2:</strong></h3>
+        <p>Beginne von unten mit dem Aufbauen des Baumes. Zeichne ein Element für die Buchstaben, die am wenigsten vorkommen. Im Beispiel von oben wären das: O, U, X, P, R und L. Du musst mindestens zwei Elemente erstellen. Wenn du also nur einen Buchstaben hast, der am wenigsten vorkommt, kombiniere ihn mit dem zweitwenigsten.</p>
+        <h3><strong>Schritt 3:</strong></h3>
+        <p>Verbinde die Elemente mit einer Linie und schreibe die Summe der Häufigkeiten auf.</p>
+        <h3><strong>Schritt 4:</strong></h3>
+        <p>Wiederhole Schritt 2 und 3, bis du nur noch ein Element hast.</p>
+        <h3><strong>Schritt 5:</strong></h3>
+        <p>Die Huffman-Codierung ist der Pfad von der Wurzel bis zum Blatt. Der Pfad nach links wird mit einer 0 und der Pfad nach rechts mit einer 1 codiert.</p>
+        <p>Wenn du nun also den Code für einen Buchstaben willst, gehe von oben dem Pfad entlang zu deinem gewünschten Buchstaben, und durch die Nullen und Einsen an den Linien hast du deinen Code.</p>
+        <br>
+        
+        
+        <a class="button" href="task1.html">Weiter zur Aufgabe</a>
+    </section>
+</main>
+</body>
+</html>
