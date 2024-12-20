@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css"/>
+</head>
+<body>
+    <main>
+        <h1>RGB Aufgabe</h1>
+        <section>
+            <h2>Wie RGB funktioniert</h2>
+            <p>RGB steht für Rot, Grün und Blau. Es ist ein Farbmodell, bei dem die Farben durch die Kombination dieser drei Grundfarben erzeugt werden. Jede Farbe im RGB-Modell wird durch eine Mischung von Rot-, Grün- und Blauanteilen dargestellt, die jeweils einen Wert zwischen 0 und 255 haben können. Durch die Variation dieser Werte können Millionen von verschiedenen Farben erzeugt werden.</p>
+            <p>Zum Beispiel ergibt die Kombination von Rot (255, 0, 0), Grün (0, 255, 0) und Blau (0, 0, 255) die Primärfarben des RGB-Modells. Wenn alle drei Farben mit dem Wert 255 kombiniert werden, entsteht Weiß (255, 255, 255), und wenn alle drei Farben den Wert 0 haben, entsteht Schwarz (0, 0, 0).</p>
+        </section>
+        <section>
+            <h2>RGB Farbselektor</h2>
+            <label for="red">Rot:</label>
+            <input type="range" id="red" name="red" min="0" max="255" value="0">
+            <span id="redValue">0</span>
+            <br>
+            <label for="green">Grün:</label>
+            <input type="range" id="green" name="green" min="0" max="255" value="0">
+            <span id="greenValue">0</span>
+            <br>
+            <label for="blue">Blau:</label>
+            <input type="range" id="blue" name="blue" min="0" max="255" value="0">
+            <span id="blueValue">0</span>
+            <br><br>
+            <div id="colorDisplay" style="width: 100px; height: 100px; background-color: rgb(0, 0, 0);"></div>
+        </section>
+        <section>
+            <h2>Quiz</h2>
+            <p>Welche Farbe bekommst du mit 255,0,255?</p>
+            <form>
+                <input type="radio" id="answer1" name="quiz" value="1">
+                <label for="answer1">Rot</label><br>
+                <input type="radio" id="answer2" name="quiz" value="2">
+                <label for="answer2">Grün</label><br>
+                <input type="radio" id="answer3" name="quiz" value="3">
+                <label for="answer3">Magenta</label><br>
+            </form>
+            <p>Welche Farbe bekommst du mit 0,0,0</p>
+            <form>
+                <input type="radio" id="answer4" name="quiz" value="4">
+                <label for="answer4">Schwarz</label><br>
+                <input type="radio" id="answer5" name="quiz" value="5">
+                <label for="answer5">Weiß</label><br>
+                <input type="radio" id="answer6" name="quiz" value="6">
+                <label for="answer6">Grau</label><br>
+            </form>
+            <p>Welche Farbe bekommst du mit 0,255,0?</p>
+            <form>
+                <input type="radio" id="answer7" name="quiz2" value="7">
+                <label for="answer7">Rot</label><br>
+                <input type="radio" id="answer8" name="quiz2" value="8">
+                <label for="answer8">Grün</label><br>
+                <input type="radio" id="answer9" name="quiz2" value="9">
+                <label for="answer9">Blau</label><br>
+            </form>
+            <p>Welche Farbe bekommst du mit 0,0,255?</p>
+            <form>
+                <input type="radio" id="answer10" name="quiz3" value="10">
+                <label for="answer10">Rot</label><br>
+                <input type="radio" id="answer11" name="quiz3" value="11">
+                <label for="answer11">Grün</label><br>
+                <input type="radio" id="answer12" name="quiz3" value="12">
+                <label for="answer12">Blau</label><br>
+            </form><br>
+            <button onclick="checkResults()">Abgabe</button>
+        </section>
+        <script>
+            const redInput = document.getElementById('red');
+            const greenInput = document.getElementById('green');
+            const blueInput = document.getElementById('blue');
+            const redValue = document.getElementById('redValue');
+            const greenValue = document.getElementById('greenValue');
+            const blueValue = document.getElementById('blueValue');
+            const colorDisplay = document.getElementById('colorDisplay');
+
+            function updateColor() {
+                const red = redInput.value;
+                const green = greenInput.value;
+                const blue = blueInput.value;
+                redValue.textContent = red;
+                greenValue.textContent = green;
+                blueValue.textContent = blue;
+                colorDisplay.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+            }
+
+            redInput.addEventListener('input', updateColor);
+            greenInput.addEventListener('input', updateColor);
+            blueInput.addEventListener('input', updateColor);
+
+            function checkResults() {
+                const answers = [
+                    { id: 'answer3', correct: true }, // Magenta
+                    { id: 'answer4', correct: true }, // Schwarz
+                    { id: 'answer8', correct: true }, // Grün
+                    { id: 'answer12', correct: true } // Blau
+                ];
+
+                let score = 0;
+
+                answers.forEach(answer => {
+                    const element = document.getElementById(answer.id);
+                    if (element.checked && answer.correct) {
+                        score++;
+                    }
+                });
+
+                if (score === answers.length) {
+                    window.location.href = 'congratulations.html';
+                } else {
+                    alert(`Das ist leider noch nicht ganz richtig.`);
+                }
+            }
+        </script>
+    </main>
+</body>
+</html>
